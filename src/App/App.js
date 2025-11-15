@@ -1,9 +1,17 @@
 import './App.css';
-
+import IngredientAnalyser
+ from '../IngredientAnalyser/IngredientAnalyser';
+import HomePage from '../HomePage/HomePage';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 function App() {
   return (
-    <div className="App">
-    </div>
+    <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<HomePage/>}/>
+      <Route path="/ingredient-analyser" element={<IngredientAnalyser/>}/>
+      
+    </Routes>
+    </BrowserRouter>
   );
 }
 
