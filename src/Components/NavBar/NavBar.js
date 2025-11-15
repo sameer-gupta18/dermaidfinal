@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { HiSparkles } from 'react-icons/hi';
 import './NavBar.css';
-
+import logo from '../../assets/logo.png'
 function NavBar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
@@ -27,7 +27,7 @@ function NavBar() {
     <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
       <div className="navbar-container">
         <Link to="/" className="navbar-logo">
-          <span className="logo-text">DermAid</span>
+          <img src={logo} alt = 'Logo'/>
         </Link>
         
         <ul className="navbar-menu">
@@ -59,11 +59,11 @@ function NavBar() {
           </li>
           <li className="navbar-item">
             <Link 
-              to="/browse" 
-              className={`navbar-link ${location.pathname === '/browse' ? 'active' : ''}`}
+              to="/skin-care-generator" 
+              className={`navbar-link ${location.pathname === '/skin-care-generator' ? 'active' : ''}`}
             >
               <HiSparkles className="ai-icon" />
-              Find More
+              Skin Care
             </Link>
           </li>
           <li className="navbar-item">
@@ -72,14 +72,6 @@ function NavBar() {
               className={`navbar-link ${location.pathname === '/find-dermatologist' ? 'active' : ''}`}
             >
               Find Nearest Dermatologist
-            </Link>
-          </li>
-          <li className="navbar-item">
-            <Link 
-              to="/browse" 
-              className={`navbar-link ${location.pathname === '/browse' ? 'active' : ''}`}
-            >
-              Browse
             </Link>
           </li>
         </ul>

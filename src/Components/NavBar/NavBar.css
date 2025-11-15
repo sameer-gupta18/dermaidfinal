@@ -37,6 +37,10 @@
   transition: transform 0.2s ease;
 }
 
+.navbar-logo img{
+    width:15vw
+}
+
 .navbar-logo:hover {
   transform: scale(1.05);
 }

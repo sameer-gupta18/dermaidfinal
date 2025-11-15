@@ -27,7 +27,7 @@ function App() {
         <Route path="/" element={<HomePage/>}/>
         <Route path="/ingredient-analyser" element={<IngredientAnalyser/>}/>
         <Route path="/melanoma-analyser" element={<MelanomaAnalyser/>}/>
-        <Route path="/find-more" element={<AskGPT/>}/>
+        <Route path="/skin-care-generator" element={<AskGPT/>}/>
         <Route path="/find-dermatologist" element={<FindDermatologist/>}/>
         <Route path="/browse" element={<Browse/>}/>
       </Routes>

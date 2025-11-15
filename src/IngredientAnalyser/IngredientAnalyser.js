@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-export default function DermatologyAnalyzer() {
+export default function IngredientAnalyser() {
   const [image, setImage] = useState(null);
   const [preview, setPreview] = useState(null);
   const [analysis, setAnalysis] = useState('');
@@ -119,51 +119,52 @@ Note, if it is mostly safe, keep 'Safe'. Keep response under 100 words total. Be
   return (
     <div style={{
       minHeight: '100vh',
-      background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-      padding: '40px 20px',
+      background: 'linear-gradient(135deg, #f0f9ff 0%, #d1fae5 100%)',
+      padding: '90px 20px 40px',
       fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif'
     }}>
       <div style={{
-        maxWidth: '900px',
+        maxWidth: '1000px',
         margin: '0 auto',
-        background: 'white',
+        background: 'rgba(255,255,255,0.7)',
         borderRadius: '20px',
-        boxShadow: '0 20px 60px rgba(0,0,0,0.3)',
+        border: '1px solid rgba(255,255,255,0.8)',
+        boxShadow: '0 20px 60px rgba(20,184,166,0.12)',
         overflow: 'hidden'
       }}>
         {/* Header */}
         <div style={{
-          background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-          padding: '40px',
+          background: 'linear-gradient(135deg, #0f766e 0%, #14b8a6 100%)',
+          padding: '36px',
           textAlign: 'center',
           color: 'white'
         }}>
           <h1 style={{
             margin: '0 0 10px 0',
-            fontSize: '36px',
-            fontWeight: '700'
+            fontSize: '34px',
+            fontWeight: '800'
           }}>
-            Dermatology Product Analyzer
+            Ingredient Analyser
           </h1>
           <p style={{
             margin: 0,
-            fontSize: '16px',
-            opacity: 0.9
+            fontSize: '15px',
+            opacity: 0.95
           }}>
             Upload a product image to analyze ingredients and potential risks
           </p>
         </div>
 
         {/* Content */}
-        <div style={{ padding: '40px' }}>
+        <div style={{ padding: '30px' }}>
           {/* Upload Section */}
           <div style={{
-            border: '3px dashed #d0d0d0',
+            border: '2px dashed rgba(20,184,166,0.35)',
             borderRadius: '15px',
-            padding: '40px',
+            padding: '32px',
             textAlign: 'center',
-            marginBottom: '30px',
-            background: '#fafafa',
+            marginBottom: '24px',
+            background: 'rgba(255,255,255,0.7)',
             transition: 'all 0.3s'
           }}>
             <input
@@ -178,20 +179,20 @@ Note, if it is mostly safe, keep 'Safe'. Keep response under 100 words total. Be
               display: 'inline-block'
             }}>
               <div style={{
-                fontSize: '48px',
-                marginBottom: '15px'
+                fontSize: '42px',
+                marginBottom: '12px'
               }}>📸</div>
               <div style={{
-                fontSize: '18px',
-                fontWeight: '600',
-                color: '#667eea',
-                marginBottom: '8px'
+                fontSize: '17px',
+                fontWeight: '700',
+                color: '#0f766e',
+                marginBottom: '6px'
               }}>
                 Click to upload product image
               </div>
               <div style={{
                 fontSize: '14px',
-                color: '#666'
+                color: '#0f172a'
               }}>
                 PNG, JPG up to 10MB
               </div>
@@ -201,7 +202,7 @@ Note, if it is mostly safe, keep 'Safe'. Keep response under 100 words total. Be
           {/* Image Preview */}
           {preview && (
             <div style={{
-              marginBottom: '30px',
+              marginBottom: '24px',
               textAlign: 'center',
               position: 'relative'
             }}>
@@ -211,19 +212,19 @@ Note, if it is mostly safe, keep 'Safe'. Keep response under 100 words total. Be
                   alt="Product preview"
                   style={{
                     maxWidth: '100%',
-                    maxHeight: '400px',
+                    maxHeight: '380px',
                     borderRadius: '15px',
-                    boxShadow: '0 4px 12px rgba(0,0,0,0.1)'
+                    boxShadow: '0 4px 12px rgba(0,0,0,0.08)'
                   }}
                 />
                 {/* Safety indicator overlay */}
                 {safetyStatus && (
                   <div style={{
                     position: 'absolute',
-                    top: '20px',
-                    right: '20px',
-                    width: '80px',
-                    height: '80px',
+                    top: '16px',
+                    right: '16px',
+                    width: '70px',
+                    height: '70px',
                     borderRadius: '50%',
                     background: safetyStatus === 'safe' 
                       ? '#10b981' 
@@ -233,8 +234,8 @@ Note, if it is mostly safe, keep 'Safe'. Keep response under 100 words total. Be
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    fontSize: '48px',
-                    boxShadow: '0 4px 20px rgba(0,0,0,0.3)',
+                    fontSize: '40px',
+                    boxShadow: '0 6px 22px rgba(0,0,0,0.2)',
                     animation: 'fadeIn 0.5s ease-in'
                   }}>
                     {safetyStatus === 'safe' ? '✓' : safetyStatus === 'caution' ? '⚠' : '✗'}
@@ -252,31 +253,31 @@ Note, if it is mostly safe, keep 'Safe'. Keep response under 100 words total. Be
               width: '100%',
               padding: '16px',
               background: loading || !image 
-                ? '#ccc' 
-                : 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                ? '#94a3b8' 
+                : 'linear-gradient(135deg, #0f766e 0%, #14b8a6 100%)',
               color: 'white',
               border: 'none',
               borderRadius: '12px',
               fontSize: '16px',
-              fontWeight: '600',
+              fontWeight: '700',
               cursor: loading || !image ? 'not-allowed' : 'pointer',
               transition: 'transform 0.2s, box-shadow 0.2s',
               boxShadow: loading || !image 
                 ? 'none' 
-                : '0 4px 15px rgba(102, 126, 234, 0.4)',
-              marginBottom: '20px'
+                : '0 6px 18px rgba(20, 184, 166, 0.35)',
+              marginBottom: '18px'
             }}
             onMouseEnter={(e) => {
               if (!loading && image) {
                 e.target.style.transform = 'translateY(-2px)';
-                e.target.style.boxShadow = '0 6px 20px rgba(102, 126, 234, 0.6)';
+                e.target.style.boxShadow = '0 10px 24px rgba(20, 184, 166, 0.45)';
               }
             }}
             onMouseLeave={(e) => {
               e.target.style.transform = 'translateY(0)';
               e.target.style.boxShadow = loading || !image 
                 ? 'none' 
-                : '0 4px 15px rgba(102, 126, 234, 0.4)';
+                : '0 6px 18px rgba(20, 184, 166, 0.35)';
             }}
           >
             {loading ? 'Analyzing...' : 'Analyze Product'}
@@ -285,12 +286,12 @@ Note, if it is mostly safe, keep 'Safe'. Keep response under 100 words total. Be
           {/* Error Message */}
           {error && (
             <div style={{
-              padding: '16px',
-              background: '#fee',
-              border: '1px solid #fcc',
+              padding: '14px',
+              background: 'rgba(239, 68, 68, 0.08)',
+              border: '1px solid rgba(239, 68, 68, 0.25)',
               borderRadius: '10px',
-              color: '#c33',
-              marginBottom: '20px',
+              color: '#991b1b',
+              marginBottom: '18px',
               fontSize: '14px'
             }}>
               <strong>Error:</strong> {error}
@@ -300,30 +301,30 @@ Note, if it is mostly safe, keep 'Safe'. Keep response under 100 words total. Be
           {/* Analysis Results */}
           {analysis && (
             <div style={{
-              background: '#f8f9fa',
-              border: '1px solid #e0e0e0',
+              background: 'rgba(255,255,255,0.8)',
+              border: '1px solid rgba(226,232,240,0.9)',
               borderRadius: '15px',
-              padding: '30px',
-              marginTop: '20px'
+              padding: '24px',
+              marginTop: '16px'
             }}>
               <h2 style={{
-                margin: '0 0 20px 0',
-                color: '#333',
-                fontSize: '24px',
-                fontWeight: '700'
+                margin: '0 0 16px 0',
+                color: '#0f172a',
+                fontSize: '22px',
+                fontWeight: '800'
               }}>
                 Analysis Results
               </h2>
               <div style={{
                 fontSize: '15px',
                 lineHeight: '1.8',
-                color: '#444'
+                color: '#334155'
               }}>
                 {analysis.split('\n').map((line, i) => {
                   // Bold text between ** markers
                   const parts = line.split(/(\*\*.*?\*\*)/g);
                   return (
-                    <p key={i} style={{ margin: '0 0 12px 0' }}>
+                    <p key={i} style={{ margin: '0 0 10px 0' }}>
                       {parts.map((part, j) => {
                         if (part.startsWith('**') && part.endsWith('**')) {
                           return <strong key={j}>{part.slice(2, -2)}</strong>;
@@ -341,10 +342,10 @@ Note, if it is mostly safe, keep 'Safe'. Keep response under 100 words total. Be
 
       {/* Footer Note */}
       <div style={{
-        maxWidth: '900px',
-        margin: '20px auto 0',
+        maxWidth: '1000px',
+        margin: '18px auto 0',
         textAlign: 'center',
-        color: 'white',
+        color: '#0f172a',
         fontSize: '13px',
         opacity: 0.8
       }}>
